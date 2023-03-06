@@ -1,7 +1,8 @@
 import java.util.Scanner;
+import java.util.Vector;
 
 public class Main {
-    //static Vector<Especialidad>especialidad=new Vector<Especialidad>();
+    static Vector<Especialidad> especialidad=new Vector<Especialidad>();
     public static Scanner dato=new Scanner(System.in);
     public static Scanner datoline=new Scanner(System.in);
     public static void main(String[] args) {
@@ -10,7 +11,7 @@ public class Main {
             opc=menu();
             switch (opc){
                 case 1:
-                    //altaEspecialidad();
+                    altaEspecialidad();
                     break;
                 case 2:
                     //altaAlumno();
@@ -25,7 +26,7 @@ public class Main {
                     //altaGrupo();
                     break;
                 case 6:
-                    //ImprimirBD();
+                    ImprimirBD();
                     break;
                 case 7:
                     System.out.println("Bye");
@@ -47,5 +48,20 @@ public class Main {
         System.out.println("7.Salir");
         System.out.println("Seleccione una opcion");
         return dato.nextInt();
+    }
+    public static void altaEspecialidad(){
+        int id;
+        String nombre;
+        System.out.println("Ingresa el Id Especialidad");
+        id= dato.nextInt();
+        System.out.println("Ingresa el Nombre Especialidad");
+        nombre=datoline.nextLine();
+        especialidad.addElement(new Especialidad(id,nombre));
+    }
+    public static void ImprimirBD(){
+        System.out.println("\nEspecialidad");
+        for (int i=0; i<especialidad.size();i++){
+            especialidad.elementAt(i).Imprimir();
+        }
     }
 }
