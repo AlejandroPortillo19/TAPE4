@@ -3,6 +3,7 @@ import java.util.Vector;
 
 public class Main {
     static Vector<Especialidad> especialidad=new Vector<Especialidad>();
+        static Vector<Catedratico> catedraticos=new Vector<Catedratico>();
     public static Scanner dato=new Scanner(System.in);
     public static Scanner datoline=new Scanner(System.in);
     public static void main(String[] args) {
@@ -17,7 +18,7 @@ public class Main {
                     //altaAlumno();
                     break;
                 case 3:
-                    //altaCatedratico();
+                    altaCatedratico();
                     break;
                 case 4:
                     //altaMateria();
@@ -57,6 +58,14 @@ public class Main {
         System.out.println("Ingresa el Nombre Especialidad");
         nombre=datoline.nextLine();
         especialidad.addElement(new Especialidad(id,nombre));
+    }
+    public static void altaCatedratico(){
+        String rfc,nombre;
+        System.out.println("Ingresar el Rfc Catedratico");
+        rfc=datoline.nextLine();
+        System.out.println("Ingresar el Nombre Catedratico");
+        nombre=datoline.nextLine();
+        catedraticos.addElement(new Catedratico(rfc,nombre));
     }
     public static void ImprimirBD(){
         System.out.println("\nEspecialidad");
