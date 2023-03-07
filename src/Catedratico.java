@@ -1,3 +1,5 @@
+package src;
+
 public class Catedratico {
     private String rfc,nombre;
 
