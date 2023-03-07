@@ -1,3 +1,5 @@
+package src;
+
 public class Especialidad {
     private int id;
     private String nombre;
@@ -10,7 +12,7 @@ public class Especialidad {
         this.nombre=nombre;
     }
 
-    public int getId() {
+    public int getId(int idEspecialidad) {
         return id;
     }
 

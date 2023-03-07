@@ -1,3 +1,5 @@
+package src;
+
 public class Grupo {
     private String clave;
     private Materia materia;

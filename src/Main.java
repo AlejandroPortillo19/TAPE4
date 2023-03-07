@@ -1,9 +1,11 @@
+package src;
+import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.Vector;
-
 public class Main {
-    static Vector<Especialidad> especialidad=new Vector<Especialidad>();
-        static Vector<Catedratico> catedraticos=new Vector<Catedratico>();
+    static ArrayList<Especialidad> especialidades=new ArrayList<Especialidad>();
+    static ArrayList<Alumno> alumnos=new ArrayList<Alumno>();
+    static Vector<Catedratico> catedraticos=new Vector<Catedratico>();
     public static Scanner dato=new Scanner(System.in);
     public static Scanner datoline=new Scanner(System.in);
     public static void main(String[] args) {
@@ -15,7 +17,7 @@ public class Main {
                     altaEspecialidad();
                     break;
                 case 2:
-                    //altaAlumno();
+                    altaAlumno();
                     break;
                 case 3:
                     altaCatedratico();
@@ -36,7 +38,7 @@ public class Main {
                     System.out.println("... opcion no valida!");
                     break;
             }
-        }while (opc!=6);
+        }while (opc!=7);
     }
     public static int menu() {
         System.out.println("MENU PRINCIPAL");
@@ -57,7 +59,7 @@ public class Main {
         id= dato.nextInt();
         System.out.println("Ingresa el Nombre Especialidad");
         nombre=datoline.nextLine();
-        especialidad.addElement(new Especialidad(id,nombre));
+        especialidades.add(new Especialidad(id,nombre));
     }
     public static void altaCatedratico(){
         String rfc,nombre;
@@ -67,10 +69,23 @@ public class Main {
         nombre=datoline.nextLine();
         catedraticos.addElement(new Catedratico(rfc,nombre));
     }
+    public  static void altaAlumno() {
+        Especialidad especialidad;
+        System.out.println("Ingresar el Numero de Control del Alumno");
+        int numControl = dato.nextInt();
+        System.out.println("Ingresar el Nombre del Alumno");
+        String nombre = datoline.nextLine();
+        System.out.println("Ingresar la Especialidad del Alumno");
+        int idEspecialidad = dato.nextInt();
+        alumnos.add(new Alumno(numControl,nombre,especialidades.get(idEspecialidad-1)));
+}
     public static void ImprimirBD(){
         System.out.println("\nEspecialidad");
-        for (int i=0; i<especialidad.size();i++){
-            especialidad.elementAt(i).Imprimir();
+        for (int i=0; i<especialidades.size();i++){
+            System.out.println(especialidades.get(i).toString());
+        }
+        for (int i=0; i<alumnos.size();i++){
+            System.out.println(alumnos.get(i).toString());
         }
     }
 }

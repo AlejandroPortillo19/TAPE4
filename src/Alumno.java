@@ -1,9 +1,11 @@
+package src;
+
 public class Alumno {
     private int numControl;
     private String nombre;
     private Especialidad especialidad;
 
-    public Alumno() {
+    public Alumno(int numControl, String nombre, int id) {
     }
 
     public Alumno(int numControl, String nombre, Especialidad especialidad) {
