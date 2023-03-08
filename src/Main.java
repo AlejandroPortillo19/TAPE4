@@ -6,6 +6,9 @@ public class Main {
     static ArrayList<Especialidad> especialidades=new ArrayList<Especialidad>();
     static ArrayList<Alumno> alumnos=new ArrayList<Alumno>();
     static Vector<Catedratico> catedraticos=new Vector<Catedratico>();
+    static ArrayList<Materia> materias=new ArrayList<Materia>();
+    static ArrayList<Grupo> grupos=new ArrayList<Grupo>();
+
     public static Scanner dato=new Scanner(System.in);
     public static Scanner datoline=new Scanner(System.in);
     public static void main(String[] args) {
@@ -17,16 +20,16 @@ public class Main {
                     altaEspecialidad();
                     break;
                 case 2:
-                    altaAlumno();
+                    //altaAlumno();
                     break;
                 case 3:
                     altaCatedratico();
                     break;
                 case 4:
-                    //altaMateria();
+                    altaMateria();
                     break;
                 case 5:
-                    //altaGrupo();
+                    altaGrupo();
                     break;
                 case 6:
                     ImprimirBD();
@@ -69,23 +72,31 @@ public class Main {
         nombre=datoline.nextLine();
         catedraticos.addElement(new Catedratico(rfc,nombre));
     }
-    public  static void altaAlumno() {
-        Especialidad especialidad;
-        System.out.println("Ingresar el Numero de Control del Alumno");
-        int numControl = dato.nextInt();
-        System.out.println("Ingresar el Nombre del Alumno");
-        String nombre = datoline.nextLine();
-        System.out.println("Ingresar la Especialidad del Alumno");
-        int idEspecialidad = dato.nextInt();
-        alumnos.add(new Alumno(numControl,nombre,especialidades.get(idEspecialidad-1)));
-}
+    public static void altaMateria(){
+        int id;
+        String nombre;
+        System.out.println("Ingresa el Id de la Materia");
+        id= dato.nextInt();
+        System.out.println("Ingresa el Nombre de la Materia");
+        nombre=datoline.nextLine();
+        materias.add(new Materia(id,nombre));
+    }
+    public static void altaGrupo(){
+        
+    }
     public static void ImprimirBD(){
         System.out.println("\nEspecialidad");
         for (int i=0; i<especialidades.size();i++){
             System.out.println(especialidades.get(i).toString());
         }
-        for (int i=0; i<alumnos.size();i++){
-            System.out.println(alumnos.get(i).toString());
+        //for (int i=0; i<alumnos.size();i++){
+        //    System.out.println(alumnos.get(i).toString());
+        //}
+        for (int i=0; i<materias.size();i++){
+            System.out.println(materias.get(i).toString());
+        }
+        for (int i=0; i<catedraticos.size();i++){
+            System.out.println(catedraticos.get(i).toString());
         }
     }
 }
