@@ -26,7 +26,7 @@ public class Main {
                     altaCatedratico();
                     break;
                 case 4:
-                    altaMateria();
+                    //altaMateria();
                     break;
                 case 5:
                     altaGrupo();
@@ -72,15 +72,7 @@ public class Main {
         nombre=datoline.nextLine();
         catedraticos.addElement(new Catedratico(rfc,nombre));
     }
-    public static void altaMateria(){
-        int id;
-        String nombre;
-        System.out.println("Ingresa el Id de la Materia");
-        id= dato.nextInt();
-        System.out.println("Ingresa el Nombre de la Materia");
-        nombre=datoline.nextLine();
-        materias.add(new Materia(id,nombre));
-    }
+
     public  static void altaAlumno() {
         Especialidad especialidad;
         System.out.println("Ingresar el Numero de Control del Alumno");
